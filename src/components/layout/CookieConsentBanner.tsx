@@ -1,7 +1,5 @@
 import { Cookie } from 'lucide-react'
-import { Link } from 'react-router'
 import { Button } from '@/components/ui/button'
-import { ROUTE_PATHS } from '@/config/routePaths'
 import { useConsentPreference } from '@/hooks/useConsentPreference'
 import { useI18n } from '@/i18n/useI18n'
 
@@ -53,12 +51,6 @@ export function CookieConsentBanner() {
           {cookieBanner.necessaryOnly}
         </Button>
       </div>
-      <Link
-        to={ROUTE_PATHS.cookieSettings}
-        className="mt-3 inline-block text-label-md text-slate-navy underline hover:text-navy"
-      >
-        {cookieBanner.settings}
-      </Link>
     </aside>
   )
 }

@@ -40,7 +40,6 @@ export const de = {
       'Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.',
     acceptAll: 'Alle akzeptieren',
     necessaryOnly: 'Nur notwendige',
-    settings: 'Einstellungen',
   },
   hero: {
     imageAlt: 'Ihr Berater – Unabhängiger Finanz- und Versicherungsmakler',

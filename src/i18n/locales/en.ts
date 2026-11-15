@@ -41,7 +41,6 @@ export const en: Messages = {
       'We use cookies to give you the best possible experience on our website.',
     acceptAll: 'Accept all',
     necessaryOnly: 'Necessary only',
-    settings: 'Settings',
   },
   hero: {
     imageAlt: 'Your advisor – independent financial and insurance broker',
