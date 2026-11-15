@@ -1,0 +1,172 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/plus-jakarta-sans';
+
+/* ---------- Brand tokens (source: docs/DESIGN.md "Hanseatic Advisory") ---------- */
+:root {
+  --navy: #1f2a44;
+  --slate-navy: #3a4a6b;
+  --brand: #004c0e; /* accent green: fills and AA-safe text on light surfaces */
+  --brand-hover: #0b6b1d;
+  --brand-light: #6fcf84; /* accent green on dark surfaces */
+  --canvas: #fbfbfd;
+  --surface-muted: #f3f4f7;
+  --hairline: #e5e7eb;
+  --caption: #6b7280; /* AA-safe neutral for captions */
+  --success: #1e7e5a;
+  --warning: #d97706;
+  --error: #be123c;
+
+  /* shadcn semantic tokens mapped onto the brand */
+  --background: var(--canvas);
+  --foreground: var(--navy);
+  --card: #ffffff;
+  --card-foreground: var(--navy);
+  --popover: #ffffff;
+  --popover-foreground: var(--navy);
+  --primary: var(--navy);
+  --primary-foreground: #ffffff;
+  --secondary: var(--surface-muted);
+  --secondary-foreground: var(--navy);
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--slate-navy);
+  --accent: var(--surface-muted);
+  --accent-foreground: var(--navy);
+  --destructive: var(--error);
+  --border: var(--hairline);
+  --input: #d1d5db;
+  --ring: var(--brand);
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-slate-navy: var(--slate-navy);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-light: var(--brand-light);
+  --color-surface: var(--canvas);
+  --color-surface-muted: var(--surface-muted);
+  --color-caption: var(--caption);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-field: 0.625rem;
+
+  --shadow-card: 0 4px 16px -2px rgb(31 42 68 / 0.04), 0 1px 3px 0 rgb(31 42 68 / 0.03);
+  --shadow-card-hover:
+    0 12px 32px -4px rgb(31 42 68 / 0.08), 0 4px 8px -2px rgb(31 42 68 / 0.04);
+  --shadow-overlay: 0 24px 48px -12px rgb(31 42 68 / 0.16);
+
+  /* Typography scale (docs/DESIGN.md) */
+  --text-display: 3.25rem;
+  --text-display--line-height: 3.75rem;
+  --text-display--letter-spacing: -0.03em;
+  --text-display-mobile: 2.25rem;
+  --text-display-mobile--line-height: 2.75rem;
+  --text-display-mobile--letter-spacing: -0.025em;
+  --text-headline-lg: 2.375rem;
+  --text-headline-lg--line-height: 2.875rem;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg-mobile: 1.75rem;
+  --text-headline-lg-mobile--line-height: 2.25rem;
+  --text-headline-lg-mobile--letter-spacing: -0.015em;
+  --text-headline-md: 1.625rem;
+  --text-headline-md--line-height: 2.125rem;
+  --text-headline-md--letter-spacing: -0.015em;
+  --text-headline-sm: 1.25rem;
+  --text-headline-sm--line-height: 1.75rem;
+  --text-headline-sm--letter-spacing: -0.01em;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.75rem;
+  --text-body-md: 1rem;
+  --text-body-md--line-height: 1.625rem;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.375rem;
+  --text-label-lg: 0.9375rem;
+  --text-label-lg--line-height: 1.25rem;
+  --text-label-lg--letter-spacing: 0.01em;
+  --text-label-md: 0.8125rem;
+  --text-label-md--line-height: 1.125rem;
+  --text-label-md--letter-spacing: 0.02em;
+  --text-label-sm: 0.6875rem;
+  --text-label-sm--line-height: 1rem;
+  --text-label-sm--letter-spacing: 0.05em;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth font-sans;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Page gutters + max width from docs/DESIGN.md "Layout & Spacing" */
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 3rem;
+  }
+}
+
+/* Legibility for white copy placed directly on photography (no overlay) */
+@utility text-shadow-hero {
+  text-shadow: 0 2px 8px rgb(0 0 0 / 0.55);
+}
